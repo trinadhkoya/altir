@@ -1,5 +1,5 @@
 import React, {PureComponent} from 'react';
-import ProfileHeader from 'screens/profile/components/ProfileHeader';
+import ProfileHeader from './components/ProfileHeader';
 
 class ProfileContainer extends PureComponent {
   render() {

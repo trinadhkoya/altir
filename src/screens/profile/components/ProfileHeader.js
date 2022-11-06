@@ -1,7 +1,7 @@
 import React from 'react';
 import {Image, StyleSheet, Text, View} from 'react-native';
+import {PROFILE_URL} from '../../../constants';
 import colors from '../../../theme/colors';
-import {PROFILE_URL} from 'src/constants';
 
 function ProfileHeader() {
   return (
@@ -28,7 +28,7 @@ function ProfileHeader() {
 const styles = StyleSheet.create({
   container: {
     flexDirection: 'row',
-    backgroundColor: colors.primary,
+    backgroundColor: colors.secondary,
     paddingVertical: 15,
   },
   imgSec: {
