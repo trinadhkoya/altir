@@ -3,27 +3,25 @@ import {Image, StyleSheet, Text, View} from 'react-native';
 import {PROFILE_URL} from '../../../constants';
 import colors from '../../../theme/colors';
 
-function ProfileHeader() {
-  return (
-    <View style={styles.container}>
-      <View style={styles.imgSec}>
-        <Image
-          style={styles.img}
-          source={{
-            uri: PROFILE_URL,
-          }}
-        />
-      </View>
-      <View style={styles.profile}>
-        <Text>Jane Doe</Text>
-        <View style={styles.rewards}>
-          <Text>{'Given 100$ /'}</Text>
-          <Text>Given 100$</Text>
-        </View>
+const ProfileHeader = () => (
+  <View style={styles.container}>
+    <View style={styles.imgSec}>
+      <Image
+        style={styles.img}
+        source={{
+          uri: PROFILE_URL,
+        }}
+      />
+    </View>
+    <View style={styles.profile}>
+      <Text style={styles.nameStyle}>Jane Doe</Text>
+      <View style={styles.rewards}>
+        <Text>{'Given 100$ /'}</Text>
+        <Text>Given 100$</Text>
       </View>
     </View>
-  );
-}
+  </View>
+);
 
 const styles = StyleSheet.create({
   container: {
@@ -48,6 +46,9 @@ const styles = StyleSheet.create({
   },
   rewards: {
     flexDirection: 'row',
+  },
+  nameStyle: {
+    fontWeight: 'bold',
   },
 });
 

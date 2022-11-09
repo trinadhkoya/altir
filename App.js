@@ -6,45 +6,41 @@
  * @flow strict-local
  */
 
-import type { Node } from "react";
-import React from "react";
-import { SafeAreaView, StatusBar, StyleSheet, useColorScheme } from "react-native";
-
-import { Colors } from "react-native/Libraries/NewAppScreen";
+import type {Node} from 'react';
+import React, {useEffect, useState} from 'react';
+import {SafeAreaView, StatusBar, useColorScheme, View} from 'react-native';
 import ProfileContainer from './src/screens/profile/ProfileContainer';
+import {TabBar} from './src/ui-kit/TabBar';
+import colors from './src/theme/colors';
 
 const App: () => Node = () => {
-  const isDarkMode = useColorScheme() === 'dark';
+  const [isFlipped, setIsFlipped] = useState(false);
 
-  const backgroundStyle = {
-    backgroundColor: isDarkMode ? Colors.darker : Colors.lighter,
-  };
+  useEffect(() => {}, [isFlipped]);
 
   return (
-    <SafeAreaView style={backgroundStyle}>
-      <StatusBar barStyle={isDarkMode ? 'light-content' : 'dark-content'} />
-      <ProfileContainer />
+    <SafeAreaView style={{flex: 1, backgroundColor: colors.secondary}}>
+      <StatusBar barStyle={'light-content'} />
+      <>
+        <ProfileContainer />
+
+      </>
+      <View
+        style={{
+          backgroundColor: 'white',
+          height: '80%',
+          borderTopLeftRadius: 10,
+          borderTopRightRadius: 10,
+        }}>
+        <TabBar
+          onPressSegmented={() => {}}
+          tab1Label={'Feed'}
+          tab2Label={'My Rewards'}
+          tabLength={2}
+        />
+      </View>
     </SafeAreaView>
   );
 };
-
-const styles = StyleSheet.create({
-  sectionContainer: {
-    marginTop: 32,
-    paddingHorizontal: 24,
-  },
-  sectionTitle: {
-    fontSize: 24,
-    fontWeight: '600',
-  },
-  sectionDescription: {
-    marginTop: 8,
-    fontSize: 18,
-    fontWeight: '400',
-  },
-  highlight: {
-    fontWeight: '700',
-  },
-});
 
 export default App;
