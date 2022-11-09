@@ -1,46 +1,22 @@
-/**
- * Sample React Native App
- * https://github.com/facebook/react-native
- *
- * @format
- * @flow strict-local
- */
-
-import type {Node} from 'react';
-import React, {useEffect, useState} from 'react';
-import {SafeAreaView, StatusBar, useColorScheme, View} from 'react-native';
-import ProfileContainer from './src/screens/profile/ProfileContainer';
-import {TabBar} from './src/ui-kit/TabBar';
+import * as React from 'react';
+import {SafeAreaView, StatusBar, StyleSheet} from 'react-native';
 import colors from './src/theme/colors';
+import ProfileContainer from './src/screens/profile/ProfileContainer';
 
-const App: () => Node = () => {
-  const [isFlipped, setIsFlipped] = useState(false);
-
-  useEffect(() => {}, [isFlipped]);
-
-  return (
-    <SafeAreaView style={{flex: 1, backgroundColor: colors.secondary}}>
-      <StatusBar barStyle={'light-content'} />
-      <>
+export default class App extends React.Component {
+  render() {
+    return (
+      <SafeAreaView style={styles.container}>
+        <StatusBar barStyle={'dark-content'} translucent={false} />
         <ProfileContainer />
+      </SafeAreaView>
+    );
+  }
+}
 
-      </>
-      <View
-        style={{
-          backgroundColor: 'white',
-          height: '80%',
-          borderTopLeftRadius: 10,
-          borderTopRightRadius: 10,
-        }}>
-        <TabBar
-          onPressSegmented={() => {}}
-          tab1Label={'Feed'}
-          tab2Label={'My Rewards'}
-          tabLength={2}
-        />
-      </View>
-    </SafeAreaView>
-  );
-};
-
-export default App;
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    backgroundColor: colors.secondary,
+  },
+});

@@ -10,14 +10,14 @@ const TabBar = props => {
 
   useEffect(() => {}, [activeIndex]);
 
-  function onPressSegmented(index) {
+  function onPressTab(index) {
     setActiveIndex(index);
   }
 
   return (
     <View style={styles.container}>
       <TouchableOpacity
-        onPress={() => onPressSegmented(0)}
+        onPress={() => onPressTab(0)}
         style={[
           styles.tabStyle,
           activeIndex === 0 ? styles.active : styles.inActive,
@@ -29,7 +29,7 @@ const TabBar = props => {
         />
       </TouchableOpacity>
       <TouchableOpacity
-        onPress={() => onPressSegmented(1)}
+        onPress={() => onPressTab(1)}
         style={[
           styles.tabStyle,
           activeIndex === 1 ? styles.active : styles.inActive,
@@ -45,7 +45,7 @@ const TabBar = props => {
 };
 
 TabBar.propTypes = {
-  onPressSegmented: PropTypes.func,
+  onPressTab: PropTypes.func,
   tab1Label: PropTypes.string,
   tab2Label: PropTypes.string,
 };
