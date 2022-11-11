@@ -18,11 +18,13 @@ class ProfileContainer extends PureComponent {
   _renderLabel = ({route}) => {
     return <Text>{route.title}</Text>;
   };
+
   _renderTabBarItem = props => (
     <View>
       <TabBarItem {...props} renderLabel={this._renderLabel} />
     </View>
   );
+
   _renderTabBar = props => {
     return (
       <TabBar
@@ -39,7 +41,7 @@ class ProfileContainer extends PureComponent {
 
   render() {
     return (
-      <View style={{flex: 1}}>
+      <View style={styles.container}>
         <ProfileHeader />
         <TabView
           navigationState={this.state}
@@ -47,7 +49,7 @@ class ProfileContainer extends PureComponent {
             first: FeedContainer,
             second: RewardContainer,
           })}
-          indicatorStyle={{height: 0, width: 0, opacity: 0}}
+          indicatorStyle={styles.indicatorStyle}
           renderTabBar={this._renderTabBar}
           onIndexChange={index => this.setState({index})}
           initialLayout={{width: Dimensions.get('window').width}}
@@ -61,6 +63,7 @@ class ProfileContainer extends PureComponent {
 const styles = StyleSheet.create({
   container: {
     marginTop: StatusBar.currentHeight,
+    flex: 1,
   },
   scene: {
     flex: 1,
@@ -80,6 +83,11 @@ const styles = StyleSheet.create({
     borderBottomColor: colors.primary50,
     borderBottomWidth: 2,
     height: 56,
+  },
+  indicatorStyle: {
+    height: 0,
+    width: 0,
+    opacity: 0,
   },
 });
 

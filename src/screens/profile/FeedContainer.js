@@ -3,7 +3,7 @@ import React from 'react';
 import colors from '../../theme/colors';
 
 const FeedContainer = () => (
-  <View style={[styles.scene, {backgroundColor: '#ffffff'}]} />
+  <View style={[styles.scene, {backgroundColor: colors.primary}]} />
 );
 export default FeedContainer;
 
