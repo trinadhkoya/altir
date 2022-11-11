@@ -10,8 +10,8 @@ class ProfileContainer extends PureComponent {
   state = {
     index: 0,
     routes: [
-      {key: 'first', title: 'First', bgColor: 'white'},
-      {key: 'second', title: 'Second', bgColor: colors.secondary},
+      {key: 'first', title: 'Feed'},
+      {key: 'second', title: 'My Reward'},
     ],
   };
 

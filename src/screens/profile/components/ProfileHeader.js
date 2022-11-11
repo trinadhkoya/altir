@@ -1,6 +1,6 @@
 import React from 'react';
 import {Image, StyleSheet, Text, View} from 'react-native';
-import {PROFILE_URL} from '../../../constants';
+import {PROFILE_URL, REWARDS_GIVEN, REWARDS_TAKEN} from '../../../constants';
 import colors from '../../../theme/colors';
 
 const ProfileHeader = () => (
@@ -16,8 +16,8 @@ const ProfileHeader = () => (
     <View style={styles.profile}>
       <Text style={styles.nameStyle}>Jane Doe</Text>
       <View style={styles.rewards}>
-        <Text>{'Given 100$ /'}</Text>
-        <Text>Given 100$</Text>
+        <Text>{`Given $${REWARDS_GIVEN}/ `}</Text>
+        <Text>{`Received $${REWARDS_TAKEN}`}</Text>
       </View>
     </View>
   </View>
@@ -51,7 +51,5 @@ const styles = StyleSheet.create({
     fontWeight: 'bold',
   },
 });
-
-ProfileHeader.propTypes = {};
 
 export default ProfileHeader;

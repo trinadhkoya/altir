@@ -1,10 +1,22 @@
-import {StatusBar, StyleSheet, View} from 'react-native';
+import {FlatList, StatusBar, StyleSheet, View} from 'react-native';
 import React from 'react';
 import colors from '../../theme/colors';
+import rewardsData from '../../data/feed.data';
+import FeedItem from './components/FeedItem';
 
-const RewardContainer = () => (
-  <View style={[styles.scene, {backgroundColor: colors.primary}]} />
-);
+const MY_USER_ID = 1253; //JUST identify myself(hardcoded)
+
+const RewardContainer = () => {
+  const _renderItem = ({item}) => <FeedItem isSelf={true} data={item} />;
+  return (
+    <View style={[styles.scene, {backgroundColor: colors.primary}]}>
+      <FlatList
+        data={rewardsData.filter(item => item?.rewardee?.id === MY_USER_ID)}
+        renderItem={_renderItem}
+      />
+    </View>
+  );
+};
 
 export default RewardContainer;
 const styles = StyleSheet.create({

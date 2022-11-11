@@ -1,10 +1,25 @@
-import {StatusBar, StyleSheet, View} from 'react-native';
+import {
+  FlatList,
+  Image,
+  StatusBar,
+  StyleSheet,
+  Text,
+  TouchableOpacity,
+  View,
+} from 'react-native';
 import React from 'react';
 import colors from '../../theme/colors';
+import rewardsData from '../../data/feed.data';
+import FeedItem from './components/FeedItem';
 
-const FeedContainer = () => (
-  <View style={[styles.scene, {backgroundColor: colors.primary}]} />
-);
+const FeedContainer = () => {
+  const renderPlace = ({item}) => <FeedItem data={item}></FeedItem>;
+  return (
+    <View style={[styles.scene, {backgroundColor: colors.primary}]}>
+      <FlatList data={rewardsData} renderItem={renderPlace} />
+    </View>
+  );
+};
 export default FeedContainer;
 
 const styles = StyleSheet.create({
