@@ -1,6 +1,6 @@
 import React from 'react';
 import {Image, StyleSheet, Text, View} from 'react-native';
-import {PROFILE_URL, REWARDS_GIVEN, REWARDS_TAKEN} from '../../../constants';
+import {me, REWARDS_GIVEN, REWARDS_TAKEN} from '../../../constants';
 import colors from '../../../theme/colors';
 
 const ProfileHeader = () => (
@@ -9,7 +9,7 @@ const ProfileHeader = () => (
       <Image
         style={styles.img}
         source={{
-          uri: PROFILE_URL,
+          uri: me.url,
         }}
       />
     </View>

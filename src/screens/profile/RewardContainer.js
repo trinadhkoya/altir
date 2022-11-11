@@ -3,15 +3,14 @@ import React from 'react';
 import colors from '../../theme/colors';
 import rewardsData from '../../data/feed.data';
 import FeedItem from './components/FeedItem';
-
-const MY_USER_ID = 1253; //JUST identify myself(hardcoded)
+import {me} from '../../constants';
 
 const RewardContainer = () => {
   const _renderItem = ({item}) => <FeedItem isSelf={true} data={item} />;
   return (
     <View style={[styles.scene, {backgroundColor: colors.primary}]}>
       <FlatList
-        data={rewardsData.filter(item => item?.rewardee?.id === MY_USER_ID)}
+        data={rewardsData.filter(item => item?.rewardee?.id === me.id)}
         renderItem={_renderItem}
       />
     </View>

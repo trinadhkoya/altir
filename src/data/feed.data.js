@@ -1,30 +1,18 @@
 const rewardsData = [
   {
-    id: '104911249',
-    title: 'Big thanks for your help on the outage today!',
-    url: 'https://i.pravatar.cc/150?img=6',
-    rewardedBy: 'Craig Federighi',
-    rewardee: {
-      name: 'Jane Jon',
-      id: 1253,
-    },
-  },
-
-  {
-    id: '104911251',
+    id: '951',
     title: 'Big thanks for your help on the outage today!',
     url: 'https://i.pravatar.cc/150?img=3',
     rewardedBy: 'Rohit Tiwari',
     rewardee: {
-      name: 'Maccintosh',
+      name: 'Tim',
       id: 1,
     },
   },
   {
-    id: '104911252',
+    id: '952',
     title: 'Thank you for your time. I appreciate it!',
     url: 'https://i.pravatar.cc/150?img=4',
-
     rewardedBy: 'Priya Kokku',
     rewardee: {
       name: 'Lisa Trotter',
@@ -32,18 +20,18 @@ const rewardsData = [
     },
   },
   {
-    id: '104911250',
-    title:
-      'I must thank you for being a tremendous help in such a precarious situation.\n',
-    url: 'https://i.pravatar.cc/150?img=6',
-    rewardedBy: 'Kunal Parashar',
+    id: '956',
+    title: 'I must sincerely thank you for helping me out with the remedy.\n',
+    rewardedBy: 'Antony',
+    url: 'https://i.pravatar.cc/150?img=9',
     rewardee: {
       name: 'Jane Jon',
-      id: 1253,
+      id: 3,
     },
   },
+
   {
-    id: '104911253',
+    id: '953',
     title: 'I couldn’t have done it without you. Thank you so much.\n',
     url: 'https://i.pravatar.cc/150?img=5',
     rewardedBy: 'PP',
@@ -54,23 +42,34 @@ const rewardsData = [
   },
 
   {
-    id: '104911254',
+    id: '954',
     title: 'I must sincerely thank you for helping me out with the remedy.\n',
     rewardedBy: 'David John',
-    url: 'https://i.pravatar.cc/150?img=6',
+    url: 'https://i.pravatar.cc/150?img=9',
     rewardee: {
       name: 'Jane Jon',
-      id: 1252,
+      id: 3,
+    },
+  },
+
+  {
+    id: '800',
+    title: 'You have been there for us whenever we needed! Much appreciated.\n',
+    url: 'https://i.pravatar.cc/150?img=12',
+    rewardedBy: 'Kunal Parashar',
+    rewardee: {
+      name: 'Jane Jon',
+      id: 12,
     },
   },
   {
-    id: '104911256',
-    title: 'I must sincerely thank you for helping me out with the remedy.\n',
-    rewardedBy: 'Antony',
-    url: 'https://i.pravatar.cc/150?img=7',
+    id: '900',
+    title: 'You are a well saviour! Kudos to your efforts!',
+    url: 'https://i.pravatar.cc/150?img=13',
+    rewardedBy: 'Sach ',
     rewardee: {
-      name: 'Jane Jon',
-      id: 1254,
+      name: 'Mitchel Jhonson',
+      id: 13,
     },
   },
 ];

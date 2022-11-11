@@ -9,7 +9,7 @@ const FeedItem = props => {
   if (isSelf) {
     rewardText = `rewarded by ${data.rewardedBy}`;
   } else {
-    rewardText = `${data.rewardedBy} rewarded by ${data.rewardee.name}`;
+    rewardText = `${data.rewardee.name} rewarded by ${data.rewardedBy} `;
   }
 
   return (
