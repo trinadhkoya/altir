@@ -7,14 +7,17 @@
     "ios": "react-native run-ios",
     "start": "react-native start",
     "test": "jest",
-    "lint": "eslint ."
+    "lint": "eslint .",
+    "pod": "cd ios && arch -x86_64 pod install"
+
   },
   "dependencies": {
     "prop-types": "^15.8.1",
     "react": "17.0.2",
     "react-native": "0.67.0",
     "react-native-pager-view": "^6.1.0",
-    "react-native-tab-view": "^3.3.0"
+    "react-native-tab-view": "^3.3.0",
+
   },
   "devDependencies": {
     "@babel/core": "^7.12.9",
