@@ -17,7 +17,6 @@ const RewardContainer = () => {
   );
 };
 
-export default RewardContainer;
 const styles = StyleSheet.create({
   container: {
     marginTop: StatusBar.currentHeight,
@@ -42,3 +41,4 @@ const styles = StyleSheet.create({
     height: 56,
   },
 });
+export default RewardContainer;

@@ -1,15 +1,15 @@
 import PropTypes from 'prop-types';
 import React from 'react';
 import {StyleSheet, Text, TouchableOpacity} from 'react-native';
-import {SCREEN_WIDTH} from 'utils/screen.utils';
-import colors from '../theme/Colors';
+import colors from '../theme/colors';
+import {SCREEN_WIDTH} from '../utils/screen.utils';
 
-const Button = ({onPress, title}) => {
+const Button = ({onPress, title, extraStyles}) => {
   return (
     <TouchableOpacity
       activeOpacity={0.7}
       onPress={onPress}
-      style={styles.container}>
+      style={[styles.container, extraStyles]}>
       <Text style={styles.btnText}>{title}</Text>
     </TouchableOpacity>
   );
@@ -18,24 +18,26 @@ const Button = ({onPress, title}) => {
 Button.propTypes = {
   title: PropTypes.string.isRequired,
   onPress: PropTypes.func,
+  extraStyles: PropTypes.object,
 };
 
 Button.defaultProps = {
   onPress: () => {},
+  extraStyles: {},
 };
 
 const styles = StyleSheet.create({
   container: {
-    width: SCREEN_WIDTH * 0.8,
+    width: SCREEN_WIDTH,
     height: 40,
     backgroundColor: colors.primary,
     justifyContent: 'center',
-    borderRadius: 5,
+    borderRadius: 30,
   },
   btnText: {
     color: colors.btnText,
     alignSelf: 'center',
-    fontWeight: 'bold',
+    fontWeight: '500',
     fontSize: 16,
   },
 });

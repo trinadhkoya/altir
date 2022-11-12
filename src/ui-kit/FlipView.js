@@ -1,7 +1,19 @@
-import React from 'react';
-import {Animated, Easing, View, StyleSheet} from 'react-native';
+'use strict';
 
 import PropTypes from 'prop-types';
+import React from 'react';
+import {Animated, Easing, StyleSheet, View} from 'react-native';
+
+const styles = StyleSheet.create({
+  flippableView: {
+    position: 'absolute',
+    left: 0,
+    top: 0,
+    right: 0,
+    bottom: 0,
+    backfaceVisibility: 'hidden',
+  },
+});
 
 class FlipView extends React.Component {
   constructor(props) {
@@ -50,7 +62,7 @@ class FlipView extends React.Component {
   };
 
   render = () => {
-    var rotateProperty = this.props.flipAxis === 'y' ? 'rotateY' : 'rotateX';
+    const rotateProperty = this.props.flipAxis === 'y' ? 'rotateY' : 'rotateX';
 
     return (
       <View {...this.props}>
@@ -121,6 +133,7 @@ class FlipView extends React.Component {
       toValue: toValue,
       duration: this.props.flipDuration,
       easing: easing,
+      useNativeDriver: true,
     });
   };
 }
@@ -148,16 +161,5 @@ FlipView.defaultProps = {
   onFlipped: () => {},
   isFlipped: false,
 };
-
-const styles = StyleSheet.create({
-  flippableView: {
-    position: 'absolute',
-    left: 0,
-    top: 0,
-    right: 0,
-    bottom: 0,
-    // backfaceVisibility: 'hidden',
-  },
-});
 
 export default FlipView;

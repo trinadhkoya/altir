@@ -1,21 +1,23 @@
-import React, {PureComponent} from 'react';
+import React, {Component} from 'react';
+import {Button, Easing, StyleSheet, Text, View} from 'react-native';
+import {TabBar, TabBarItem} from 'react-native-tab-view';
+import AddReviewForm from './AddReviewForm';
 import ProfileHeader from './components/ProfileHeader';
-import {Button, Dimensions, StyleSheet, Text, View} from 'react-native';
-import {SceneMap, TabBar, TabBarItem, TabView} from 'react-native-tab-view';
-import colors from '../../theme/colors';
-import FeedContainer from './FeedContainer';
-import RewardContainer from './RewardContainer';
 import {me} from '../../constants';
+import FlipComponent from '../../ui-kit/FlipView';
+import colors from '../../theme/colors';
+import ProfileTabs from './components/ProfileTabs';
 
 const routes = [
   {key: 'first', title: 'Feed'},
   {key: 'second', title: 'My Reward'},
 ];
 
-class ProfileContainer extends PureComponent {
-  constructor() {
-    super();
+class Example extends Component {
+  constructor(props) {
+    super(props);
     this.state = {
+      isFlipped: false,
       index: 0,
       routes: routes,
     };
@@ -26,9 +28,7 @@ class ProfileContainer extends PureComponent {
   };
 
   _renderTabBarItem = props => (
-    <View>
-      <TabBarItem {...props} renderLabel={this._renderLabel} />
-    </View>
+    <TabBarItem {...props} renderLabel={this._renderLabel} />
   );
 
   _renderTabBar = props => {
@@ -45,35 +45,47 @@ class ProfileContainer extends PureComponent {
     );
   };
 
+  onPressAdd = () => {
+    this.setState({isFlipped: !this.state.isFlipped});
+  };
+
   render() {
+    const {isFlipped} = this.state;
+
     return (
       <View style={styles.container}>
         <ProfileHeader data={me} />
-        <View style={styles.tabStyle}>
-          <TabView
-            navigationState={this.state}
-            renderScene={SceneMap({
-              first: FeedContainer,
-              second: RewardContainer,
-            })}
-            indicatorStyle={styles.indicatorStyle}
-            renderTabBar={this._renderTabBar}
-            onIndexChange={index => this.setState({index})}
-            initialLayout={{width: Dimensions.get('window').width}}
-            style={styles.container}
-          />
-        </View>
+        <FlipComponent
+          style={styles.tabStyle}
+          front={
+            <ProfileTabs
+              navigationState={this.state}
+              renderTabBar={this._renderTabBar}
+              onIndexChange={index => this.setState({index})}
+            />
+          }
+          back={<AddReviewForm />}
+          isFlipped={isFlipped}
+          flipAxis="y"
+          flipEasing={Easing.out(Easing.ease)}
+          flipDuration={500}
+          perspective={1000}
+        />
+
         <View style={styles.floatingButton}>
-          <Button title={'+'} color={colors.primary} />
+          <Button
+            onPress={this.onPressAdd}
+            title={isFlipped ? 'X' : '+'}
+            color={colors.primary}
+          />
         </View>
       </View>
     );
   }
 }
-
 const styles = StyleSheet.create({
   container: {
-    flexGrow: 1,
+    flex: 1,
   },
   tabItem: {
     flex: 1,
@@ -117,6 +129,4 @@ const styles = StyleSheet.create({
   },
 });
 
-ProfileContainer.propTypes = {};
-
-export default ProfileContainer;
+export default Example;
