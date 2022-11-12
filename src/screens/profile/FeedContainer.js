@@ -19,7 +19,8 @@ const styles = StyleSheet.create({
     marginTop: StatusBar.currentHeight,
   },
   scene: {
-    flex: 1,
+    flexGrow: 1,
+    backgroundColor: colors.primary,
   },
   tabItem: {
     flex: 1,

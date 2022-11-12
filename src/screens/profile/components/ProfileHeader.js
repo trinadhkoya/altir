@@ -1,32 +1,34 @@
 import React from 'react';
 import {Image, StyleSheet, Text, View} from 'react-native';
-import {me, REWARDS_GIVEN, REWARDS_TAKEN} from '../../../constants';
-import colors from '../../../theme/colors';
+import PropTypes from 'prop-types';
 
-const ProfileHeader = () => (
+const ProfileHeader = ({data}) => (
   <View style={styles.container}>
     <View style={styles.imgSec}>
       <Image
         style={styles.img}
         source={{
-          uri: me.url,
+          uri: data?.url,
         }}
       />
     </View>
     <View style={styles.profile}>
-      <Text style={styles.nameStyle}>Jane Doe</Text>
+      <Text style={styles.nameStyle}>{data?.name}</Text>
       <View style={styles.rewards}>
-        <Text>{`Given $${REWARDS_GIVEN}/ `}</Text>
-        <Text>{`Received $${REWARDS_TAKEN}`}</Text>
+        <Text>{`Given $${data?.rewardInfo?.given}/ `}</Text>
+        <Text>{`Received $${data?.rewardInfo?.taken}`}</Text>
       </View>
     </View>
   </View>
 );
 
+ProfileHeader.defaultProps = {
+  data: PropTypes.object.isRequired,
+};
+
 const styles = StyleSheet.create({
   container: {
     flexDirection: 'row',
-    backgroundColor: colors.secondary,
     paddingVertical: 15,
   },
   imgSec: {

@@ -1,19 +1,25 @@
 import React, {PureComponent} from 'react';
 import ProfileHeader from './components/ProfileHeader';
-import {Dimensions, StatusBar, StyleSheet, Text, View} from 'react-native';
+import {Button, Dimensions, StyleSheet, Text, View} from 'react-native';
 import {SceneMap, TabBar, TabBarItem, TabView} from 'react-native-tab-view';
 import colors from '../../theme/colors';
 import FeedContainer from './FeedContainer';
 import RewardContainer from './RewardContainer';
+import {me} from '../../constants';
+
+const routes = [
+  {key: 'first', title: 'Feed'},
+  {key: 'second', title: 'My Reward'},
+];
 
 class ProfileContainer extends PureComponent {
-  state = {
-    index: 0,
-    routes: [
-      {key: 'first', title: 'Feed'},
-      {key: 'second', title: 'My Reward'},
-    ],
-  };
+  constructor() {
+    super();
+    this.state = {
+      index: 0,
+      routes: routes,
+    };
+  }
 
   _renderLabel = ({route}) => {
     return <Text>{route.title}</Text>;
@@ -42,19 +48,24 @@ class ProfileContainer extends PureComponent {
   render() {
     return (
       <View style={styles.container}>
-        <ProfileHeader />
-        <TabView
-          navigationState={this.state}
-          renderScene={SceneMap({
-            first: FeedContainer,
-            second: RewardContainer,
-          })}
-          indicatorStyle={styles.indicatorStyle}
-          renderTabBar={this._renderTabBar}
-          onIndexChange={index => this.setState({index})}
-          initialLayout={{width: Dimensions.get('window').width}}
-          style={styles.container}
-        />
+        <ProfileHeader data={me} />
+        <View style={styles.tabStyle}>
+          <TabView
+            navigationState={this.state}
+            renderScene={SceneMap({
+              first: FeedContainer,
+              second: RewardContainer,
+            })}
+            indicatorStyle={styles.indicatorStyle}
+            renderTabBar={this._renderTabBar}
+            onIndexChange={index => this.setState({index})}
+            initialLayout={{width: Dimensions.get('window').width}}
+            style={styles.container}
+          />
+        </View>
+        <View style={styles.floatingButton}>
+          <Button title={'+'} color={colors.primary} />
+        </View>
       </View>
     );
   }
@@ -62,11 +73,7 @@ class ProfileContainer extends PureComponent {
 
 const styles = StyleSheet.create({
   container: {
-    marginTop: StatusBar.currentHeight,
-    flex: 1,
-  },
-  scene: {
-    flex: 1,
+    flexGrow: 1,
   },
   tabItem: {
     flex: 1,
@@ -88,6 +95,25 @@ const styles = StyleSheet.create({
     height: 0,
     width: 0,
     opacity: 0,
+  },
+  floatingButton: {
+    position: 'absolute',
+    bottom: 0,
+    right: 0,
+    backgroundColor: colors.black,
+    borderRadius: 15,
+    height: 40,
+    width: 50,
+    marginHorizontal: 20,
+    justifyContent: 'center',
+  },
+  tabStyle: {
+    backgroundColor: colors.primary,
+    borderTopLeftRadius: 30,
+    borderTopRightRadius: 30,
+    paddingTop: 0,
+    overflow: 'hidden',
+    flex: 1,
   },
 });
 
