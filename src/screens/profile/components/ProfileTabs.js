@@ -3,7 +3,6 @@ import {SceneMap, TabView} from 'react-native-tab-view';
 import FeedContainer from '../FeedContainer';
 import RewardContainer from '../RewardContainer';
 import {Dimensions, StyleSheet} from 'react-native';
-import colors from '../../../theme/colors';
 
 class ProfileTabs extends Component<{
   navigationState: Readonly<S>,

@@ -10,16 +10,20 @@
 ### Covered and WIP:
 1. Feed Page ✅
 2. My Rewards Page ✅
-3. Input Form 
+3. Input Form ✅
 
 
 #### Screenshots
 
 <table>
-  
+  <tr>
+  <img src="./demo/demo.gif" width="375" height="812" />
+  <tr>
   <tr>
     <td><img src="./demo/1.png" width="300"></td>
     <td><img src="./demo/2.png" width="300"></td>
+    <td><img src="./demo/3.png" width="300"></td>
+
   <tr>
  
 
