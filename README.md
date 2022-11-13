@@ -17,7 +17,7 @@
 
 <table>
   <tr>
-  <img src="./demo/demo.gif" width="375" height="736" />
+  <img src="./demo/demo.gif" width="375" height="812" />
   <tr>
   <tr>
     <td><img src="./demo/1.png" width="300"></td>
